@@ -9,7 +9,7 @@ from yahoo_fin.stock_info import get_data
 from sklearn.model_selection import train_test_split
 from dataclasses import dataclass
 
-from src.utils import create_dataset
+# from src.utils import create_dataset
 from src.components.data_transformation import DataTransformation
 from src.components.model_trainer import ModelTrainer
 
@@ -28,7 +28,7 @@ class DataIngession:
         logging.info('Entered the data ingession method or component.')
         try:
             today = date.today()
-            data = get_data("^NSEI", start_date="01/07/2018", end_date=today, index_as_date = True)
+            data = get_data("NVDA", start_date="01/01/2010", end_date=today, index_as_date = True)
             logging.info('Read the data from Yahoo Finance API as dataframe👍')
             os.makedirs(os.path.dirname(self.ingession_config.train_data_path), exist_ok=True)
             
